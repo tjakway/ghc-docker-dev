@@ -61,14 +61,11 @@ RUN apt-get update && apt-get install -y \
   # Needed for running nofib
   time \
 
-  # arc tool
-  # It makes a lot more sense to run this from your host
-  git php-cli php-curl libssl-dev vim-tiny \
-  && apt-get clean
+  #for update-merge
+  default-jre-headless \
 
-RUN mkdir /php && cd /php \
-  && git clone https://github.com/phacility/libphutil.git \
-  && git clone https://github.com/phacility/arcanist.git
+  git vim-tiny \
+  && apt-get clean
 
 # for building the ghc manual
 #RUN apt-get update \
@@ -85,7 +82,7 @@ ENV HOME /home/ghc
 WORKDIR /home/ghc
 USER ghc
 
-ENV PATH /opt/ghc/8.2.2/bin:/opt/cabal/2.2/bin:/php/arcanist/bin:$PATH
+ENV PATH /opt/ghc/8.2.2/bin:/opt/cabal/2.2/bin:$PATH
 
 # Build dependencies for nofib-analyse
 RUN cabal update && cabal install html regex-compat
