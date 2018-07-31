@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+#typically used with the following:
+#   sudo ./run_with_limits.sh --rm -i -t -v /home/thomas/git/ghc_docker_home:/home/ghc 3aed6db7e935 /bin/bash
+
 #2 ^ 20
 TMP_SPACE_LIMIT=1048576k
 
